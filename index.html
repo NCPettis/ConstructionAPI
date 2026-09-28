@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="C:\Users\niap3\OneDrive\Documents\Resilient Coders\week08-classwork\ConstructionAPI\ConstructionAPI\css\construction-api.css">
+    <link rel="stylesheet" href="css\construction-api.css">
     <title>Construction API</title>
 </head>
 <body>
-    
+    <h1> Better than a Port-O-Potty</h1>
+    <p> Enter your city to find a list of the local bathrooms in the area. Gender neutral bathrooms also. 
+
+    <label for="cityInput">Search the site:</label>
+    <input type="search" id="cityInput" name="q" />
+    <button>Search</button>
+
+
+    <section>
+        <div id="condition">PLACE TO SEE</div>
+        <div id="weatherIcon"></div>
+        <span>TEMP:</span><div id="temp"></div>
+        <span>FEELS LIKE:</span><div id="feel"></div>
+    </section>
+
+
+ <script src="js/construction-api.js" ></script>  
+ <!-- <script src="https://unpkg.com/corsfix"></script>
+<script>
+  corsfix
+    .fetch("https://api.builddata.ca/permit?municipality=toronto&limit=5`")
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+</script>  -->
 </body>
 </html>
