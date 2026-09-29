@@ -19,17 +19,42 @@ BUILD DATA - curl -H 'X-API-Key: nb_live_IMBjPJS_JfOQZuRUWilQs_hLErkxpCR8_zLRwoh
 
 // fetch = ('X-API-Key: nb_live_la5NILWdB34jEUfL4sbPgqqiPUN7hTuynhpygqTZ' \
 //   'https://api.builddata.ca/permit?municipality=toronto&limit=5'
+
+
 document.querySelector('button').addEventListener('click', findBathroom )
- function findBathroom() {
+function findBathroom() {
+        // const url = "https://cors.io/?url=https://geocoding-api.open-meteo.com/v1/search?name=${city}&language=en&format=json"
+    let city = document.querySelector('input').value
 
-        let job = document.querySelector('input').value
-
-    fetch(`https://paycrunch.co/api/v1/jobs/${job}.json`)
+    fetch(`https://cors.io/?url=https://geocoding-api.open-meteo.com/v1/search?name=${city}&language=en&format=json`)
         .then(res => res.json())
-        .then(data => {
-        console.log(data)
+        .then((data) => {
+
+        const dataReform = JSON.parse(data.body);
+        console.log(dataReform)
+        // console.log(data)
+
+            for(let i = 0; i < dataReform.length ; i++){
+
+            let lat = dataReform[i].results.latitude
+            console.log(lat)
+    
+            const lon = dataReform[i].results.longitude
+
+
+
+            }
+
+
+
+
+
+
     })
  }
+
+/* https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=10&language=en&format=json
+
         // // headers: {
         // //      "X-API-Key": `nb_live_IMBjPJS_JfOQZuRUWilQs_hLErkxpCR8_zLRwohS`,
         // // }
@@ -44,8 +69,4 @@ document.querySelector('button').addEventListener('click', findBathroom )
         // .then((data) => {
         // console.log(data)
         // })
-
-
-    //RESTAURANT API -  vhttps://www.givefood.org.uk/api/2/foodbanks/
-    // Construction API - https://paycrunch.co/api/v1/jobs.json <<< search for job salaries. (https://paycrunch.co/api.html#jobs)
-    // MedSpa API - https://verifiedsupplementdata.com/api possibly OR 
+        */
