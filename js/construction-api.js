@@ -26,7 +26,7 @@ function findBathroom() {
         // const url = "https://cors.io/?url=https://geocoding-api.open-meteo.com/v1/search?name=${city}&language=en&format=json"
     let city = document.querySelector('input').value
 
-    fetch(`https://cors.io/?url=https://geocoding-api.open-meteo.com/v1/search?name=${city}&language=en&format=json`)
+    fetch(`https://cors.io/?url=https://geocoding-api.open-meteo.com/v1/search?name=${city}&language=en&country=United_States&format=json`)
         .then(res => res.json())
         .then((data) => {
 
@@ -34,39 +34,43 @@ function findBathroom() {
         console.log(dataReform)
         // console.log(data)
 
-            for(let i = 0; i < dataReform.length ; i++){
+            for(let i = 0; i < dataReform.results.length ; i++){
 
-            let lat = dataReform[i].results.latitude
-            console.log(lat)
+            let lat = dataReform.results[i].latitude
+            // console.log(lat)
     
-            const lon = dataReform[i].results.longitude
+            let lon = dataReform.results[i].longitude
+            // console.log(lon)
 
+                fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?lat=${lat}&lng=${lon}`)
+                .then(res => res.json())
+                .then((data) => {
+                console.log(data)
+                 data.forEach(restroom =>{
+                console.log(restroom.name)
 
+                 })
+
+                 data.forEach(restroom =>{
+
+                    if(restroom.country != "US"){
+
+                        column.style.display = 'none'
+                    }else{
+
+                    const column = document.createElement("tr")
+                    column.innerHTML=`<td>${restroom.name}</td><td>${restroom.street}</td><td>${restroom.accessible}</td><td>${restroom.unisex}</td>`
+                    document.querySelector('table').appendChild(column)
+
+                    }
+
+                 })
+    
+                })
 
             }
-
-
-
-
-
 
     })
  }
 
-/* https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=10&language=en&format=json
-
-        // // headers: {
-        // //      "X-API-Key": `nb_live_IMBjPJS_JfOQZuRUWilQs_hLErkxpCR8_zLRwohS`,
-        // // }
-
-        // .then((res) => {
-        //     // if(!res.ok) {
-        //     //     throw new Error(`http ${res.status}`);
-        //     // }
-        //     // return res.json();
-        // })
-    
-        // .then((data) => {
-        // console.log(data)
-        // })
-        */
+//  Initial plan for building permits didn't work with the curl link. Bathroom API worked but needed to make it complex to translate the lat and lon. Would like to improve the styling and get "city, State" to work as an input. 
