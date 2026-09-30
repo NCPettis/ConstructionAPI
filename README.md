@@ -5,7 +5,7 @@ A helpful web app for construction workers that searches for bathrooms in the ar
 "Sometimes you just have to WASH your hands. Hand sanitizer wont remove the dirt from under your nails!"
 
 ### How It's Made:
-Tech used: HTML, CSS, JavaScript, Framework of choice
+Tech used: HTML, CSS, JavaScript
 
 
 ### Lessons Learned:
