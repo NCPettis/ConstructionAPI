@@ -32,21 +32,19 @@ function findBathroom() {
 
         const dataReform = JSON.parse(data.body);
         console.log(dataReform)
-        // console.log(data)
-
-            for(let i = 0; i < dataReform.results.length ; i++){
-
-            let lat = dataReform.results[i].latitude
+    
+            let lat = dataReform.results[0].latitude
             // console.log(lat)
     
-            let lon = dataReform.results[i].longitude
+            let lon = dataReform.results[0].longitude
             // console.log(lon)
 
                 fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?lat=${lat}&lng=${lon}`)
                 .then(res => res.json())
                 .then((data) => {
                 console.log(data)
-                 data.forEach(restroom =>{
+                 
+                data.forEach(restroom =>{
                 console.log(restroom.name)
 
                  })
@@ -68,9 +66,44 @@ function findBathroom() {
     
                 })
 
-            }
+            })
+  
 
-    })
- }
+        }
+ 
+        //   for(let i = 0; i < dataReform.results.length ; i++){
 
-//  Initial plan for building permits didn't work with the curl link. Bathroom API worked but needed to make it complex to translate the lat and lon. Would like to improve the styling and get "city, State" to work as an input. 
+        //     let lat = dataReform.results[i].latitude
+        //     // console.log(lat)
+    
+        //     let lon = dataReform.results[i].longitude
+        //     // console.log(lon)
+
+        //         fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?lat=${lat}&lng=${lon}`)
+        //         .then(res => res.json())
+        //         .then((data) => {
+        //         console.log(data)
+        //          data.forEach(restroom =>{
+        //         console.log(restroom.name)
+
+        //          })
+
+        //          data.forEach(restroom =>{
+
+        //             if(restroom.country != "US"){
+
+        //                 column.style.display = 'none'
+        //             }else{
+
+        //             const column = document.createElement("tr")
+        //             column.innerHTML=`<td>${restroom.name}</td><td>${restroom.street}</td><td>${restroom.accessible}</td><td>${restroom.unisex}</td>`
+        //             document.querySelector('table').appendChild(column)
+
+        //             }
+
+        //          })
+    
+        //         })
+
+        //     }
+/* Initial plan for building permits didn't work with the curl link. Bathroom API worked but needed to make it complex to translate the lat and lon. Would like to improve the styling and get "city, State" to work.*/

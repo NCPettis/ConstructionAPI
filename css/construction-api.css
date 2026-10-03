@@ -10,15 +10,15 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-image: url("images\construction-background.png"); */
-    /* overflow: hidden;
+    background-image: url("../images/construction-background.png");
+    overflow: hidden;
     background-repeat: no-repeat;
-    background-size: cover;  */
+    background-size: cover; 
   
 }
 
 #webApp{
-    background-color: rgba(218, 175, 103, 0.5);
+    background-color: rgba(162, 91, 19, 0.5);
 }
 
 
