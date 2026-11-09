@@ -22,6 +22,7 @@ Tech used: HTML, CSS, JavaScript
 The application requires an internet connection to access its external APIs. API availability and credential requirements may affect the results.
 
 ## Screenshots and Demo
+Live Link: https://betterthan.netlify.app/
 
 ### Application Interface
 
